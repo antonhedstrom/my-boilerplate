@@ -1,0 +1,55 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+
+const NavWrapper = styled.div`
+
+`;
+
+const NavList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+`;
+
+const NavItem = styled.li`
+  font-weight: bold;
+  display: inline-block;
+  flex-grow: 1;
+  text-align: center;
+  margin-bottom: 0;
+
+  a {
+    display: block;
+    padding: ${({ theme }) => theme.spacing.small};
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: white;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    &.active {
+      color: black;
+    }
+  }
+`;
+
+function Navigation({ children, ...rest }) {
+  return (
+    <NavWrapper {...rest}>
+      <NavList className="container">
+        <NavItem>
+          <NavLink activeClassName="active" to="/view1">View A</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink activeClassName="active" to="/view2">View B</NavLink>
+        </NavItem>
+      </NavList>
+    </NavWrapper>
+  );
+}
+
+export default Navigation;

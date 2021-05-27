@@ -13,7 +13,7 @@ const app = express();
   try {
     const database = await db();
     await database.sequelize.authenticate();
-    await database.sequelize.sync({ force: true });
+    await database.sequelize.sync();
     console.log('✅  Database Connection has been established successfully.');
 
     app.use((req, res, next) => {

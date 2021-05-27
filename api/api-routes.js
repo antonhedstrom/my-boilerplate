@@ -1,6 +1,5 @@
 const path = require('path');
 
-
 const express = require('express');
 const { Op } = require('sequelize');
 
@@ -11,6 +10,11 @@ const router = express.Router();
 
 router.use('/user', userRoutes);
 router.use('/book', bookRoutes);
+
+// Documentation
+router.get('/', (req, res, next) => {
+  res.sendFile(path.join(__dirname, 'api-docs.html'));
+});
 
 // Catching all API routes so we don't fallback to index.html route in app.
 router.all('*', (req, res, next) => {

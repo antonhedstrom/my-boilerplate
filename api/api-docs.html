@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="API Documentation for SomethingAnything." />
+
+  <!-- CSS -->
+  <style type="text/css">
+    body {
+      color: #444;
+    }
+  </style>
+
+  <title>API docs</title>
+</head>
+
+<body>
+  <h1>API Documentation</h1>
+
+  <h2>Types</h2>
+
+  List of all types and some example formats.
+
+  <h3>&lt;Book&gt;</h3>
+
+  <code>
+    { id: 43, title: "My book", createdAt: "2021-01-17T23:00:00.127Z", updatedAt: "2021-01-17T23:00:00.127Z" }
+  </code>
+
+  <h3>&lt;User&gt;</h3>
+
+  <code>
+    { id: 28, username: "Andrew", createdAt: "2021-01-17T23:00:00.127Z", updatedAt: "2021-01-17T23:00:00.127Z" }
+  </code>
+
+  <br />
+  <hr />
+  <h2>Endpoints</h2>
+  <table border="1" cellspacing="0" cellpadding="10">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Path</th>
+        <th>Description</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GET</td>
+        <td>/book</td>
+        <td>Get a list of Books.</td>
+        <td>
+          Returns array of &lt;Book&gt;.<br />
+          <ul>
+            <li><b>limit</b>&nbsp;<i>(optional)</i>&nbsp;<i>(default 10)</i> - Max number of records.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>GET</td>
+        <td>/book/:id</td>
+        <td>Get a single Book.</td>
+        <td>
+          Returns a &lt;Book&gt;.<br />
+        </td>
+      </tr>
+
+      <tr>
+        <td>GET</td>
+        <td>/user</td>
+        <td>Get a list of Users.</td>
+        <td>
+          Returns array of &lt;User&gt;.<br/>
+          <ul>
+            <li><b>limit</b>&nbsp;<i>(optional)</i>&nbsp;<i>(default 10)</i> - Max number of records.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>GET</td>
+        <td>/user/:id</td>
+        <td>Get a single User.</td>
+        <td>
+          Returns a &lt;User&gt;.<br />
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</body>
+
+</html>

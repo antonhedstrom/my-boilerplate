@@ -70,6 +70,16 @@ grant all privileges on database boilerplate to postgres; # grant access
 
 You should now be able to connect to DB.
 
+## Migrate Database
+
+Migrations and seeds are being handled by Sequelize. To create a new migration:
+
+```sh
+npm run db:migration:new my-new-migration
+```
+
+For other possibilities, see [migration docs](https://sequelize.org/master/manual/migrations.html).
+
 ## Start app
 
 The client is being built using [Create React App](https://create-react-app.dev). To start server and watching files+hot reload of client side code:

@@ -2,13 +2,10 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { ThemeContext } from 'styled-components';
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter,
+  Routes,
   Route,
 } from "react-router-dom";
-// import styles from 'turtle-ui';
-
-import './styles/App.scss';
 
 import theme from './theme';
 import Topbar from './Containers/Layout/Topbar';
@@ -21,6 +18,7 @@ import FirstView from './Containers/FirstView';
 import SecondView from './Containers/SecondView';
 
 import BookDetails from './Components/BookDetails';
+import GlobalStyle from './GlobalStyle';
 
 function App() {
   const queryClient = new QueryClient();
@@ -28,35 +26,27 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeContext.Provider value={theme}>
-        <Router>
+        <GlobalStyle />
+        <BrowserRouter>
           <Topbar>
             <Navigation />
           </Topbar>
 
           <Main className="container">
-            <Switch>
-              <Route exact path="/">
-                <FirstView />
-              </Route>
+            <Routes>
+              <Route exact path="/" element={<FirstView />} />
 
-              {/* Somethings */}
-              <Route exact path="/view1">
-                <FirstView />
-              </Route>
-              <Route path="/books/:id">
-                {({ match }) => <BookDetails id={match.params.id} />}
-              </Route>
+              {/* First view */}
+              <Route exact path="/view1" element={<FirstView />} />
+              <Route path="/books/:id" element={<BookDetails />} />
 
-              {/* Anythings */}
-              <Route exact path="/view2">
-                <SecondView />
-              </Route>
+              {/* Second view */}
+              <Route exact path="/view2" element={<SecondView />} />
 
               {/* 404 */}
-              <Route>
-                <NotFound />
-              </Route>
-            </Switch>
+              <Route element={<NotFound />} />
+
+            </Routes>
 
           </Main>
 
@@ -64,7 +54,7 @@ function App() {
             <hr style={{ marginBottom: 0 }} />
             <Footer />
           </div>
-        </Router>
+        </BrowserRouter>
       </ThemeContext.Provider>
 
       <ReactQueryDevtools initialIsOpen={false} />

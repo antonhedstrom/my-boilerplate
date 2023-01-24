@@ -22,10 +22,8 @@ const Title = styled.h1`
 function Topbar({ children, ...rest }) {
   return (
     <Container {...rest}>
-      <div className="container">
-        <Title>Boilerplate of 🎩</Title>
-        {children}
-      </div>
+      <Title>Boilerplate of 🎩</Title>
+      {children}
     </Container>
   );
 }

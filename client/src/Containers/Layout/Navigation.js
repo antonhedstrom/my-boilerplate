@@ -2,53 +2,39 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const NavWrapper = styled.div`
-
-`;
+const Container = styled.div`
+  color: white;
+  text-align: center;
+`
 
 const NavList = styled.ul`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-`;
-
+  justify-content: space-around;
+  padding-bottom: 20px;
+`
 const NavItem = styled.li`
-  font-weight: bold;
+  list-style: none;
   display: inline-block;
-  flex-grow: 1;
-  text-align: center;
-  margin-bottom: 0;
+  padding: 1em;
+  border: 1px white solid;
 
   a {
-    display: block;
-    padding: ${({ theme }) => theme.spacing.small};
-    text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.4);
     color: white;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.6);
-    }
-
-    &.active {
-      color: black;
-    }
   }
-`;
+`
 
-function Navigation({ children, ...rest }) {
+function Navigation() {
   return (
-    <NavWrapper {...rest}>
-      <NavList className="container">
+    <Container>
+      <NavList>
         <NavItem>
-          <NavLink activeClassName="active" to="/view1">View A</NavLink>
+          <NavLink to="/view1">View A</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink activeClassName="active" to="/view2">View B</NavLink>
+          <NavLink to="/view2">View B</NavLink>
         </NavItem>
       </NavList>
-    </NavWrapper>
+    </Container>
   );
 }
 

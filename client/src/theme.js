@@ -1,5 +1,10 @@
 module.exports = {
-  color: {
+  font: {
+    size: '16px',
+    family: '"Open Sans", Arial'
+  },
+
+  colors: {
     // Colors
     primary: '#008f95',
     secondary: '#EAE2B7',
@@ -25,11 +30,12 @@ module.exports = {
   },
 
   spacing: {
-    'x-small': '0.25em',
-    small: '0.5em',
-    medium: '1em',
-    large: '1.5em',
-    'x-large': '2em',
+    xs: '0.125rem',
+    sm: '0.25rem',
+    md: '0.5rem',
+    lg: '1rem',
+    xl: '2rem',
+    xxl: '3rem',
   },
 
   breakpoint: {

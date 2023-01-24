@@ -4,12 +4,14 @@ import { useQuery } from 'react-query';
 
 import ErrorContainer, { parseAxiosError } from '../Containers/Layout/ErrorContainer';
 import { getBook } from '../api-services';
+import { useParams } from 'react-router-dom';
 
 const Data = styled.div`
 `;
 
-function BookDetails({ id, ...rest }) {
-  const { isLoading, error, data: { data: book } = {} } = useQuery(['book', id], () => getBook(id));
+function BookDetails() {
+  const params = useParams()
+  const { isLoading, error, data: { data: book } = {} } = useQuery(['book', params.id], () => getBook(params.id));
 
   if (isLoading) {
     return null;
@@ -20,7 +22,7 @@ function BookDetails({ id, ...rest }) {
   }
 
   return (
-    <div {...rest}>
+    <div>
       <h3>{book.title}</h3>
       <Data>{book.createdAt}</Data>
     </div>

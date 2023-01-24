@@ -4,15 +4,15 @@
   "description": "A generice boilerplate with server + client.",
   "dependencies": {
     "crypto": "^1.0.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "pg": "^8.5.1",
-    "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.5"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.28.0"
   },
   "devDependencies": {
-    "concurrently": "^5.3.0",
-    "sequelize-cli": "^6.2.0"
+    "concurrently": "^7.6.0",
+    "sequelize-cli": "^6.5.2"
   },
   "scripts": {
     "postinstall": "cd client && npm install",
